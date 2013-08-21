@@ -52,6 +52,11 @@ sixteenthsMelodyB = \relative c'' {
 	b8 d16 cis b8 a16 g a g fis g a b cis d
 	b8 d16 cis d8 cis16 b cis d e d cis d b cis
 }
+sixteenthsMelodyABfilled = {
+	<< { \sixteenthsMelodyA \sixteenthsMelodyB } \\
+		\relative c'' { d4 r cis r b r2. g4 r fis r g r e r }
+	>>
+}
 sixteenthsMelodyBalt = \relative c'' {
 	b8 d16 cis b8 a16 g a g fis g a b cis d
 	b8 d16 cis d8 cis16 b cis d cis b a g fis e
@@ -63,6 +68,11 @@ sixteenthsMelodyC = \relative c'' {
 sixteenthsMelodyD = \relative c'' {
 	g8 b16 a g8 fis16 e fis e d e fis g a b
 	g8 b16 a b8 cis16 d a b cis d e fis g a
+}
+sixteenthsMelodyCDfilled = {
+	<< { \sixteenthsMelodyC \sixteenthsMelodyD } \\
+		\relative c'' { d4 r a r b r2. b4 r a r b r a a }
+	>>
 }
 sixteenthsMelodyE = \relative c'' {
 	fis8 d16 e fis8 e16 d16 e cis d e fis e d cis
@@ -255,12 +265,8 @@ violinBoth = \new Voice {
 	<< \relative c''' { b2 a b,4 r e4 a } \\
 		\relative c'' { d8 b b cis d cis b a g fis e b' cis2 }
 	>>
-	<< { \sixteenthsMelodyA \sixteenthsMelodyB } \\
-		\relative c'' { d4 r cis r b r2. g4 r fis r g r e r }
-	>>
-	<< { \sixteenthsMelodyC \sixteenthsMelodyD } \\
-		\relative c'' { d4 r a r b r2. b4 r a r b r a a }
-	>>
+	\sixteenthsMelodyABfilled
+	\sixteenthsMelodyCDfilled
 	\relative c'' { <d d,>4 fis e4 fis16( e d cis) }
 	\relative c'' { <d fis,>4 d8 d,16 e
 		<< a2 \\ { fis16( g fis e) fis( d e fis) } >>
@@ -372,10 +378,22 @@ guitarSoloA = \relative c'' {
 	b4. a16 g a8 d fis,4
 	b4. a16( g) d'4 cis8.( d32 e)
 }
+guitarSoloAfilled = \relative c'' {
+	fis4.( g16 fis) e4 <e, a,>16 q q q
+	d'4. e16( d) cis8 <fis, a,>16-.( q-.) a8 <d, a>16-.( q-.)
+	b'4. a16 g a8 d fis,4
+	b4. a16( g) d'4 cis8.( d32 e)
+}
 guitarSoloB = \relative c'' {
 	fis2 e4 r4 d4. e16( d) cis8 fis a4
 	b8 a g a16 b a8 g fis a 
 	b a g a16(\db b \glissando cis2)
+}
+guitarSoloBfilled = \relative c'' {
+	fis8 <a, d,>16 q q q <a g'> <a fis'> <a e'>4 <e a,>16 q q q
+	d'4. e16( d) cis8 fis a d,
+	b'8 a g a16( b) a8 g fis a 
+	b\db a g a16\ub( b) <cis e,>4->( \glissando <e,, a,>4)
 }
 guitarSoloC = \relative c'' {
 	d16\ub d, cis' d, d' d, fis8
@@ -384,11 +402,24 @@ guitarSoloC = \relative c'' {
 	g8 fis e g fis16( e d b) a4
 	b8 a g d' cis8^\trill a16-.( e-.) d-.\db cis-. a16 r16
 }
+guitarSoloCfilled = \relative c'' {
+	d16\ub d, cis' d, d' d, fis8
+	a8. fis16 a(\db b cis8)
+	d16\ub fis, cis' fis, d' fis, d'( fis) a8( b16 a b a) a( b)
+	g8 fis e g fis16( e d b) <a d,>4
+	b8 a g d' cis8^\trill a16-.( e-.) d-.\db cis-. <a fis'>8(
+}
 guitarSoloD = \relative c'' {
 	d8 cis d fis, a8. fis16( a b cis8)
 	d,16( fis b d) fis( d b fis) \glissando b8.( a32 b a4)
 	d,16 fis g a e( fis) g8 fis8 a d fis
 	g16( fis e d cis b a g) cis( b a g fis e d cis)
+}
+guitarSoloDfilled = \relative c'' {
+	<d fis,>8) cis d fis, a8. fis16( a b cis8)
+	d,16( fis b d) fis( d b fis) \glissando b8.( a32 b a4)
+	d,16 fis g a e( fis) g8 fis16 fis a a d d fis fis
+	<g b,>16( fis e d) cis( b a g) <cis e,>( b a g) fis( e d cis)
 }
 arpeggioBreakA = \relative c' {
 	\tuplet 6/4 { a16( cis e a cis e) }
@@ -476,8 +507,13 @@ secondViolinBoth = \new Voice {
 	\introChordsA
 	\upbeatsAfilled
 	\upbeatsBfilled
-	\guitarSoloA
-	\guitarSoloB
-	\guitarSoloC
-	\guitarSoloD
+	\guitarSoloAfilled
+	\guitarSoloBfilled
+	\guitarSoloCfilled
+	\guitarSoloDfilled
+	\arpeggioBreakA
+	\sixteenthsMelodyABfilled
+	\sixteenthsMelodyCDfilled
+	\relative c'' { <d fis>1^\fermata }
+	\bar "|."
 }
