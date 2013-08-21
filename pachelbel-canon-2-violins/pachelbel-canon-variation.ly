@@ -18,11 +18,12 @@ rit = _\markup { \upright "rit." }
 %%%%%%% snippets %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 violinBassA = \relative c' { | d2 a | b fis' | g d | g, a | }
+violinBassAhi = \relative c'' { | d2 a | b fis | g d | g a | }
 restPhrase = { R1*4 }
-halfMelodyA = \relative c' { fis'2 e d cis b a b cis }
-halfMelodyAend = \relative c' { fis'2 e d cis b a8( g fis a) g2\rit e }
-halfMelodyAarco = \relative c' { fis'2\arco e d cis b a b cis }
-halfMelodyAdescant = \relative c' { d'2 cis b a g fis g <a e> }
+halfMelodyA = \relative c'' { fis2 e d cis b a b cis }
+halfMelodyAend = \relative c'' { fis2 e d cis b a8( g fis a) g2\rit e }
+halfMelodyAarco = \relative c'' { fis2\arco e d cis b a b cis }
+halfMelodyAdescant = \relative c'' { d2 cis b a g fis g <a e> }
 quarterMelodyA = \relative c' { d4( fis) a( g) fis d fis( e) d b d( a') g( b) a( g) }
 quarterMelodyB = \relative c' { fis( d) e( cis') d fis a( a,) b g a( fis) d d' d4.^\trill cis8 }
 eighthMelodyA = \relative c'' {
@@ -238,6 +239,82 @@ violinTwo = \new Voice {
 
 } % end Voice
 
+violinBoth = \new Voice {
+	\set Staff.instrumentName = #"Violin"
+	\set Staff.midiInstrument = #"violin"
+	\violinBassAhi
+	<< \violinBassAhi \halfMelodyA >>
+	<< \halfMelodyA \halfMelodyAdescant >>
+	<< \halfMelodyAdescant \\ \quarterMelodyA >>
+	<< \halfMelodyAdescant \\ \quarterMelodyB >>
+	<< \eighthMelodyA \\
+		\relative c' { fis4 r2. b4 r a r b r a r b r cis r } >>
+	<< \eighthMelodyB \\
+		\relative c'' { d2 cis4 r b4 r4 a2 g,4 r2. b4 r e r } >>
+	\relative c' { d4 fis' e8 e, a g <fis b>4 d' a'8 g fis e }
+	<< \relative c''' { b2 a b,4 r e4 a } \\
+		\relative c'' { d8 b b cis d cis b a g fis e b' cis2 }
+	>>
+	<< { \sixteenthsMelodyA \sixteenthsMelodyB } \\
+		\relative c'' { d4 r cis r b r2. g4 r fis r g r e r }
+	>>
+	<< { \sixteenthsMelodyC \sixteenthsMelodyD } \\
+		\relative c'' { d4 r a r b r2. b4 r a r b r a a }
+	>>
+	\relative c'' { <d d,>4 fis e4 fis16( e d cis) }
+	\relative c'' { <d fis,>4 d8 d,16 e
+		<< a2 \\ { fis16( g fis e) fis( d e fis) } >>
+	}
+	\relative c'' { <b g>16 d, d' cis b8 a16 g
+		<< { a4 a16( b cis d) } \\ { a16( g fis g) d4 } >>
+	}
+	<< \relative c'' { b a8( b) e2 } \\
+		\relative c'' { g2 cis16( d e d) cis( d b cis) }
+	>>
+	<< \eighthMelodyC \\
+		\relative c'' { d4 r a r b r fis r g r d r g r e r }
+	>>
+	<< \eighthMelodyD \\
+		\relative c' { fis4 r e r d r a' r b r a r b r cis r }
+	>>
+	<< \skipMelodyA \\
+		% \relative c' { fis4 r e r d r r2 b4 r a r b r cis r }
+		% \quarterMelodyA
+		\relative c' { d4 r a' g fis r fis r d b d r r b' a r }
+	>>
+	<< \skipMelodyB \\
+		% \relative c' { fis4 r e r b' r a r d, r fis r b r e r }
+		% \quarterMelodyB
+		\relative c' { fis4 d e r d fis a r r g a fis d' r cis r }
+	>>
+	\relative c' {
+		fis8( d fis) <d' a'> << { a'8( b a g) } \\ a,2 >>
+		fis'8 b,16( d fis d fis8) fis( g fis e)
+		d( cis b cis d) d,16( e fis8 d')
+		d( c b c) << a2 \\ { e4.( g8) } >>
+	}
+	\relative c' {
+		<fis a>4.( <fis' a>8) << { a( b a g) } \\ { fis g fis e } >>
+		<d fis>4. q8 << { fis( g) fis( e) } \\ { d e d cis } >>
+		<< { d8( c b c) a2 } \\ { g2 d8( e fis d) } >>
+		d'8( c b c) <cis e,>4.( q8)
+	}
+	\relative c'' {
+		<< { d4 fis2 e4 } \\ { r4 d a2 } >>
+		<< { d4 d'2 c4 } \\ { r2 fis, } >>
+		<< { b2 d4 a } \\ { g2 d } >>
+		<< { b'2 a } \\ { d,2 e } >>
+	}
+	\relative c'' {
+		<< { fis4 d e cis d fis a a, b g a a d, d' d4. cis8 } \\
+		{ d,4 fis a g fis d r e d b d fis g, fis' e g  } >>
+	}
+	\bar "||"
+	\relative c' {
+		<fis d'>1^\fermata
+	}
+}
+
 %%%%%%%% 2nd movement %%%%%%%%
 % \markup { \bold Rock! (inspired by Jerry C.)}
 introChordsA = \relative c'' {
@@ -275,6 +352,20 @@ upbeatsA = \relative c' {
 	r4 cis8 d r4 d16( cis b a)
 	r8 <d, b'> b'16-. b8( cis16) d8 r8 g16( fis e d)
 	r4 b16( cis d cis) r4 cis16( d e d)
+}
+upbeatsAfilled = \relative c' {
+	<fis d'>8 <a, d>16-.( q-.) <a' g'>( <a fis'>) <fis d'>8
+	<a, e'>8 q16-.( q-.) <a' e'>( <a fis'>) <a, e'>8
+	<b d>4 cis'8-.( d-.) <a, fis'>4 d'16( cis b a)
+	<g g,>8 <d b'> b'16-. b8( cis16) <d fis,>4 g16( fis e d)
+	<g, b,>4 b16( cis d cis) <e, cis>4 cis'16( d e d)
+}
+upbeatsBfilled = \relative c' {
+	<fis d'>8 <a, d>16-.( q-.) <a' g'>( <a fis'>) <fis d'>16-.( q-.)
+	<a, e'>8 q16-.( q-.) <a' e'>( <a fis'>) <a, e'>16-.( q-.)
+	<b d>8 q16-.( q-.) cis'8-.( d-.) <a, fis'>8 q16-.( q-.) d'16( cis b a)
+	<g g,>8 q16-.( q-.) b16-. b8( cis16) <d fis,>8 <fis, d>16-.( q-.) g'16( fis e d)
+	<g, b,>8 q16-.( q-.) b16( cis d cis) <e, cis>8 q16-.( q-.) cis'16( d e d)
 }
 guitarSoloA = \relative c'' {
 	fis4.( g16 fis) e4 r4 d4. e16( d) cis4 a
@@ -377,4 +468,16 @@ secondViolinII = \new Voice {
 	\halfMelodyAend
 	\relative c' { <a fis'>1^\fermata }
 	\bar "|."
+}
+
+secondViolinBoth = \new Voice {
+	\set Staff.instrumentName = #"E. Guitar "
+	\set Staff.midiInstrument = #"violin"
+	\introChordsA
+	\upbeatsAfilled
+	\upbeatsBfilled
+	\guitarSoloA
+	\guitarSoloB
+	\guitarSoloC
+	\guitarSoloD
 }
