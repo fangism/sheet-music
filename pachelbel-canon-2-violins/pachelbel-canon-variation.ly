@@ -45,9 +45,9 @@ quarterMelodyAboth = \relative c' {
 }
 quarterMelodyBboth = \relative c' {
 	<< { d'2 cis } \\ { fis,4( d) e( cis') } >>
-	<< { d4-1( fis-3) a-1( a,) } \\ { b2 a } >>
+	<< { d4-1( fis-3) a-1( a,) } \\ { b2-3 a-0 } >>
 	<< { b4-1( g) } \\ { g2 } >>
-	<< { a2 g2 } \\ { a4( fis) d4 d' } >>
+	<< { a2 g2-3 } \\ { a4( fis) d4-4 d' } >>
 	<< { d4.^\trill cis8 } \\ e,2 >>
 }
 eighthMelodyA = \relative c'' {
@@ -88,11 +88,11 @@ sixteenthsMelodyB = \relative c'' {
 	b8 d16 cis d8 cis16 b cis d e d cis d b cis
 }
 sixteenthsMelodyABfilled = \relative c''' {
-	<a d,>8 fis16 g a8 fis16 g <a cis,> a, b cis d e fis g
-	<fis b,>8 d16 e fis8 fis,16-1 g
+	<a d,>8 fis16 g <a d,>8 fis16 g <a cis,> a, b cis d e fis g
+	<fis b,>8 d16 e <fis b,>8 fis,16-1 g
 		<< a2-0 \\ { a16-3 b a g a fis g a-0 } >>
-	<b-1 g-3>8 d16 cis b8 a16 g <a fis> g fis g a b cis d
-	<b g>8 d16 cis d8 cis16 b <cis e,> d e d cis d b cis
+	<b-1 g-3>8 d16 cis <b d,>8 a16 g <a fis> g fis g a b cis d
+	<b g>8 d16 cis <d g,>8 cis16 b <cis e,> d e d cis d b cis
 %	<< { \sixteenthsMelodyA \sixteenthsMelodyB } \\
 %		\relative c'' { d4 r cis r b r2. g4 r fis r g r e r }
 %	>>
@@ -110,11 +110,11 @@ sixteenthsMelodyD = \relative c'' {
 	g8 b16 a b8 cis16 d a b cis d e fis g a
 }
 sixteenthsMelodyCDfilled = \relative c'' {
-	<fis d>8 d16 e fis8 e16 d <e a,> cis d e fis e d-2 cis-1
-	<d-2 b-4>8 b16-1 cis d8 d,16 e
+	<fis d>8 d16 e <fis d>8 e16 d <e a,> cis d e fis e d-2 cis-1
+	<d-2 b-4>8 b16-1 cis <d fis,>8 d,16 e
 		<< a2 \\ { fis16 g fis e fis d e fis } >>
-	<g b>8 b16 a g8 fis16 e <fis a> e d e fis g a b
-	<g b>8 b16 a b8 cis16 d
+	<g b>8 b16 a <g b,>8 fis16 e <fis a> e d e fis g a b
+	<g b>8 b16 a <b e,>8 cis16 d
 	<< { a16-0 b cis d e fis g a } \\ { a,4-4 a-0 } >>
 %	<< { \sixteenthsMelodyC \sixteenthsMelodyD } \\
 %		\relative c'' { d4 r a r b r2. b4 r a r b r a a }
@@ -135,7 +135,7 @@ eighthMelodyD = \relative c' {
 }
 eighthMelodyCDfilled = \relative c'' {
 	<fis d>8 fis, g fis <e a>  e' fis e
-	<d-2 b-4> fis,-1 d b'-4 <a-0 fis-1> a, g a 
+	<d-2 b-4> fis,-1 d b'-4 <a-0 fis-1> a,-1 g a 
 	<b g'> b' cis b <a d,> a, g a <b g'> b' a b <cis e,> cis, b cis
 	<d fis>8 d' e d <cis e,> cis, d cis <b d> b' a b <cis a> cis, fis e
 	<d b'> d' e g <fis a,> fis, a fis'-3
@@ -329,7 +329,8 @@ violinBoth = \new Voice {
 	\eighthMelodyBfilled
 %	<< \eighthMelodyB \\
 %		\relative c'' { d2 cis4 r b4 r4 a2 g,4 r2. b4 r e r } >>
-	\relative c' { d4 fis' e8 e, a g <fis b>4 d' a'8 g fis e }
+	\relative c' { d4 fis' e8 e, a g <fis b>4 d'
+		<< { a'8 g fis e } \\ a,2 >> }
 	<< \relative c''' { b2 a b,4 r e4 a } \\
 		\relative c'' { d8 b b cis d cis b a g fis e b' cis2 }
 	>>
@@ -489,9 +490,10 @@ guitarSoloD = \relative c'' {
 	g16( fis e d cis b a g) cis( b a g fis e d cis)
 }
 guitarSoloDfilled = \relative c'' {
-	<d fis,>8) cis d fis, a8. fis16( a b cis8)
+	<d fis,>8) cis d fis, <a e>8. fis16( a b cis8)
 	d,16( fis b d) fis( d b fis) \glissando b8. a32( b a4)
-	d,16 fis g a e( fis) g8 fis16 fis a a d d fis fis
+	d,16 fis g a e( fis) g8
+		fis16 fis a a d d fis fis
 	<g b,>16( fis e d) cis( b a g) <cis e,>( b a g) fis( e d cis)
 }
 arpeggioBreakA = \relative c' {
