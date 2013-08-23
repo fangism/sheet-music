@@ -3,7 +3,7 @@
 
 \header {
 subtitle = "arranged for solo violin"
-subsubtitle = "\"Bach-elbel's Little Fugue\""
+subsubtitle = "\"Bach-elbel's Lonely Fugue\""
 }
 
 %%%%%%%% 1st movement %%%%%%%%
